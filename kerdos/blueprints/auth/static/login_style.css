@@ -1,0 +1,360 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@font-face {
+  font-family: "Sen Extra Bold";
+  src: url("../static/fonts/Sen-ExtraBold.ttf");
+}
+:root {
+  /* definindo as cores do app */
+  --primary-color: #f5f5f5;
+  --primary-text-color: #f5f5f5;
+  --secondary-color: #95d47f;
+  --terciary-color: #020024;
+  --card-color: #ffffff;
+  --card-border: 1px solid #e9e9e9f6;
+  --navbar-color: linear-gradient(
+    135deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(27, 60, 89, 1) 78%
+  );
+  --transition-speed: 400ms;
+}
+
+/* tirando a cor roxa dos links que ja foram visitados */
+a {
+  color: var(--primary-text-color);
+}
+a:visited {
+  color: var(--primary-text-color);
+}
+a:hover {
+  color: var(--primary-text-color);
+}
+a:active {
+  color: var(--primary-text-color);
+}
+.text-center {
+  text-align: center !important;
+}
+* {
+  font-family: "Montserrat", sans-serif;
+  transition: var(--transition-speed);
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: var(--primary-color);
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+.logo {
+  display: none;
+}
+.wrapper {
+  display: inline-block;
+}
+.left-screen {
+  box-sizing: border-box !important;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: var(--transition-speed);
+}
+.bottom svg#left_wave {
+  position: absolute;
+  bottom: 0;
+  z-index: -9;
+}
+.bottom svg#left_wave path,
+.bottom-right svg#right_wave path {
+  fill: var(--secondary-color);
+}
+.login-form-div {
+  height: 430px;
+  width: 350px;
+  max-width: 40%;
+  display: inline-block;
+  position: relative;
+  z-index: 9999;
+  background: var(--terciary-color);
+  margin: 5% 0 0 15%;
+  border-radius: 8px;
+  -webkit-box-shadow: -21px 16px 1px 2px #00000071;
+  box-shadow: -21px 16px 1px 2px #00000071;
+  color: var(--primary-text-color);
+  padding: 60px 55px;
+  box-sizing: border-box;
+}
+.login-form-div input {
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 6px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.login-form-div input.wrong {
+  background-color: #f08080;
+  border: 2px solid #f82626c5;
+}
+.login-form-div input::placeholder {
+  color: var(--terciary-color);
+}
+label {
+  display: block;
+}
+.login-form-div a {
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+.login-form-div #form .keep {
+  display: flex;
+  padding-left: 0;
+}
+.login-form-div #form .keep input {
+  width: 10%;
+  margin-left: 0;
+}
+.login-form-div #form .keep span {
+  width: 90%;
+  font-size: small;
+  transition: none;
+}
+#form_button {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  margin-top: 20px;
+  padding: 12px;
+  color: var(--terciary-color);
+  font-weight: 600;
+  border: none;
+  text-align: center;
+  background: var(--secondary-color);
+}
+h2.text-center {
+  text-align: center;
+}
+.magic-wrapper {
+  float: right;
+  margin: 10% 20% 0 0;
+}
+#account-request {
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+  padding: 0;
+  padding-bottom: 10px;
+  cursor: pointer;
+  color: var(--terciary-color);
+  text-decoration: none;
+}
+#account-request:hover {
+  margin-left: 10px;
+}
+#criar-conta {
+  background-color: transparent;
+  border: none;
+  color: var(--primary-text-color);
+}
+.inner-account-request {
+  display: none;
+  margin-top: 30px;
+  color: white;
+  text-align: center;
+}
+.inner-account-request a {
+  font-size: 15px;
+}
+.inner-account-request img {
+  height: 15px;
+}
+.magic-button img {
+  height: 2rem;
+  margin-bottom: -7px;
+}
+.right-screen {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  right: -100vw;
+  top: 0;
+  transition: var(--transition-speed);
+}
+.bottom-right svg#right_wave {
+  transition: none;
+  position: absolute;
+  bottom: 0;
+  transform: scaleX(-1);
+}
+.right-screen .investment {
+  position: absolute;
+  right: -30%;
+  top: 10%;
+  opacity: 0.5;
+  transition: all 3s ease-in-out;
+}
+.right-screen .investment.animate {
+  right: 7%;
+}
+.right-screen h1 {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+}
+#login_return_anchor {
+  position: relative;
+  bottom: 0;
+  left: 50px;
+  color: var(--terciary-color);
+  text-decoration: none;
+}
+
+.notification {
+  position: absolute;
+  right: 15px;
+  top: 30px;
+  display: flex;
+  padding: 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  animation: fade-in 1s ease;
+}
+
+.notification .notification-close {
+  background-color: transparent;
+  border: none;
+  font-weight: 800;
+  font-size: medium;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.notification.wrong-password {
+  background-color: #ff191963;
+  border: 1px solid #e70202;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+/* Responsividade */
+@media only screen and (max-width: 1200px) {
+  .login-form-div {
+    margin: 10% 0 0 10%;
+  }
+  .magic-wrapper {
+    margin: 10% 5% 0 0;
+  }
+}
+@media only screen and (max-width: 860px) {
+  .logo {
+    width: 100vw;
+    height: 80px;
+    background-color: var(--primary-color);
+    display: block;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+  }
+  .logo h1 {
+    font-family: "Sen Extra Bold";
+  }
+  .mobile-wave {
+    position: fixed;
+    bottom: 75px;
+    height: 25px;
+    overflow: hidden;
+  }
+  #mobile_wave {
+    fill: var(--secondary-color);
+    width: 100vw;
+  }
+  .right-screen .investment {
+    top: 30%;
+  }
+  .login-form-div {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px 35px;
+    height: 470px;
+    width: 450px;
+    max-width: 70%;
+    margin: 0;
+  }
+  .magic-wrapper {
+    display: none;
+  }
+  .inner-account-request {
+    display: block;
+  }
+  #login_return_anchor {
+    position: absolute;
+    bottom: 50px;
+    left: 20px;
+    z-index: 99;
+  }
+  .bottom svg#left_wave,
+  .bottom-right svg#right_wave {
+    display: none;
+  }
+  .right-screen h1 {
+    text-align: center;
+    position: static;
+    margin-top: 120px;
+  }
+  .right-screen.shown {
+    height: 100vh;
+  }
+  .right-screen.hidden {
+    height: 0;
+    opacity: 0;
+  }
+  .right-screen {
+    position: static;
+  }
+  .left-screen.shown {
+    height: 100vh;
+  }
+  .left-screen.hidden {
+    height: 0;
+    opacity: 0;
+  }
+  .notification {
+    top: 85px;
+    right: 0;
+    width: 90vw;
+    margin: 0 5vw;
+    box-sizing: border-box;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .login-form-div {
+    margin: 15px 0;
+    width: 80%;
+    max-width: 100%;
+    transform: translate(-50%, -60%);
+  }
+  .bottom svg#left_wave {
+    height: auto;
+    width: 100%;
+  }
+  .right-screen .investment svg {
+    height: 300px;
+  }
+  .right-screen .investment {
+    top: 40%;
+  }
+  .right-screen .investment.animate {
+    right: 3%;
+  }
+}

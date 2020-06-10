@@ -1,0 +1,407 @@
+/* 
+
+author: Breno Fiorese
+company: Dataser Analytics
+email: brenofiorese01@gmail.com
+created-at: February 02, 2020
+
+*/
+
+/* comments are in brazilian portuguese */
+
+/* para sobrepor alguns estilos, usar o ID #css-override */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+:root {
+  /* definindo as cores do app */
+  --primary-color: #d8d8d8;
+  --primary-text-color: #f5f5f5;
+  --secondary-color: #95d47f;
+  --terciary-color: #020024;
+  --card-color: #ffffff;
+  --navbar-color: linear-gradient(
+    135deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(27, 60, 89, 1) 78%
+  );
+  --transition-speed: 400ms;
+}
+
+.dark-mode {
+  --primary-color: #121212;
+  --terciary-color: #f5f5f5;
+  --card-color: #383838;
+  --card-text: #f5f5f5;
+}
+
+/* tirando a cor roxa dos links que ja foram visitados */
+a {
+  color: var(--primary-text-color);
+}
+a:visited {
+  color: var(--primary-text-color);
+}
+a:hover {
+  color: var(--primary-text-color);
+}
+a:active {
+  color: var(--primary-text-color);
+}
+
+body#css-override {
+  margin: 0;
+  padding: 0;
+  background-color: var(--primary-color);
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+.logo img {
+  margin-top: 15px;
+  height: 40px;
+}
+.navbar {
+  position: fixed;
+  background: var(--navbar-color);
+  transition: width 600ms ease;
+  width: 5rem;
+  height: 100vh;
+  text-align: center;
+}
+
+h4 {
+  color: var(--primary-text-color);
+}
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.navbar ul li {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.navbar ul li.active {
+  border-right: 3px solid var(--secondary-color);
+}
+.navbar ul li:last-child {
+  position: absolute;
+  bottom: 0;
+}
+#css-override .navbar ul .material-icons {
+  font-size: 32px;
+  transition: var(--transition-speed);
+}
+#css-override .navbar ul .material-icons:hover {
+  color: var(--secondary-color);
+}
+#css-override .navbar ul li.active .material-icons {
+  color: var(--secondary-color);
+}
+#css-override .navbar ul a {
+  align-items: center;
+}
+#modal_open{
+  border: none;
+  background-color: transparent;
+  color: var(--primary-text-color);
+  outline: none;
+  cursor: pointer;
+}
+/* configuração do slider de dark theme */
+.theme-switch-wrapper {
+  margin-left: 0.7rem;
+  margin-top: 30vh;
+  display: flex;
+  align-items: center;
+}
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: absolute;
+  bottom: 5rem;
+  width: 60px;
+}
+.theme-switch input {
+  display: none;
+}
+.theme-switch .slider {
+  background: url("./day_sky.png");
+  background-size: cover;
+  background-position: center;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+.theme-switch .slider:before {
+  background-color: #f7f739;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: var(--transition-speed);
+  width: 26px;
+}
+.theme-switch input:checked + .slider {
+  background: url("./night_sky.png");
+  background-position: right;
+  background-size: cover;
+}
+.theme-switch input:checked + .slider:before {
+  transform: translateX(26px);
+  background: url("./moon.png");
+  background-size: cover;
+}
+.theme-switch .slider.round {
+  border-radius: 34px;
+}
+.theme-switch .slider.round:before {
+  border-radius: 50%;
+}
+/* fim do slider de dark theme */
+
+main {
+  background: var(--primary-color);
+  margin-left: 5rem;
+  padding: 25px;
+}
+
+/* Grid & Cards */
+
+.card {
+  background: var(--card-color);
+  margin-bottom: 15px;
+  border-radius: 8px;
+  transition: var(--transition-speed);
+  box-sizing: border-box;
+  padding: 10px 26px;
+  width: 100%;
+  height: 250px;
+}
+.card h1, .card h2, .card h3 {
+  color: var(--terciary-color);
+}
+.card h2 {
+  font-weight: 300;
+}
+.card.welcome {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 150px;
+  width: 100%;
+}
+.welcome .hello, .welcome .growth{
+  display: table-cell;
+  width: 35%;
+}
+.growth-percentage {
+  color: #04c404;
+}
+.card.main-line-chart {
+  height: 360px;
+}
+.card.main-line-chart #main_line_chart {
+  height: 100%;
+}
+.two-grid {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.two-grid .card {
+  flex: 50%;
+}
+.two-grid .card:first-child {
+  margin-right: 15px;
+}
+.three-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+.three-grid .card {
+  flex: 1/3;
+}
+.three-grid .card:not(:last-child) {
+  margin-right: 15px;
+}
+
+/* fim da configuração do grid */
+
+/* personalização dos charts */
+#css-override div div svg rect:nth-child(2) {
+  fill: var(--card-color);
+  border-radius: 8px;
+}
+#css-override g g text,
+#css-override div div div svg g text:first-child {
+  fill: var(--card-text);
+  font-size: 0.7rem;
+}
+.cfg-modal {
+  z-index: 999;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--card-color);
+  color: var(--card-text);
+  border: 999px solid rgba(114, 114, 114, 0.897);
+  background-clip: padding-box;
+  border-radius: 4px;
+  width: 600px;
+  height: 500px;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  padding: 0 25px 100px 25px;
+}
+.cfg-modal.hidden{
+  display: none;
+}
+.cfg-modal button{
+  border: none;
+  background: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: xx-large;
+  font-weight: bolder;
+  color: var(--terciary-color);
+  height: 1.5rem;
+  cursor: pointer;
+}
+.cfg-modal .cfg {
+  padding-top: 20px;
+  width: 100%;
+  /* height: 100%; */
+  overflow: auto;
+  display: table;
+  border-collapse: collapse;
+}
+.cfg-modal .cfg .cfg-wrapper {
+  width: 100px;
+  display: table-row;
+  box-sizing: border-box;
+  height: 70px;
+  border-bottom: 1px solid rgba(165, 165, 165, 0.637);
+}
+.cfg-modal .cfg .cfg-wrapper .cfg-label,
+.cfg-modal .cfg .cfg-wrapper .cfg-toggle{
+  display: table-cell;
+  vertical-align: middle;
+}
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  float: right;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Responsiveness */
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+  }
+  main {
+    padding: 12px;
+  }
+  .two-grid, .three-grid {
+    display: block;
+  }
+  .card {
+    flex: unset !important;
+    display: block;
+    padding: 5px 13px;
+  }
+  .card.welcome {
+    display: block;
+  }
+  .welcome .hello, .welcome .growth{
+    display: block;
+    width: 100%;
+  }
+  .hello h1 {
+    font-size: large;
+    margin: 2px;
+  }
+  .hello h2 {
+    font-size: medium;
+    margin: 2px;
+  }
+  .welcome .growth h3 {
+    text-align: justify;
+    font-size: 14px;
+  }
+  .cfg-modal {
+    width: 80vw;
+  }
+}
