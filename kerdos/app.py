@@ -11,7 +11,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://kerdos:123@localhost/kerdos_admin'
-app.config['SECRET_KEY'] = 'aaa'
+app.config['SECRET_KEY'] = 'aaaa'
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
 
